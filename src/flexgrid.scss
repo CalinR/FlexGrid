@@ -1,0 +1,133 @@
+$margin: 15px;
+$column: 100%/12;
+
+$small: 480px;
+$medium: 768px;
+$large: 769px;
+
+$postSmall: $small + 1;
+
+$breakpoints: (
+  'small' '(max-width: #{$small})',
+  'medium' '(min-width: #{$postSmall}) and (max-width: #{$medium})',
+  'medium-down' '(max-width: #{$medium})',
+  'large' '(min-width: #{$large})'
+);
+
+[class*="grid"]{
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: -$margin;
+}
+[class*="col-"]{
+  flex: 0 0 auto;
+  padding-left: $margin;
+  padding-bottom: $margin;
+  flex-basis: 100%;
+  max-width: 100%;
+}
+.col-top {
+  align-self: flex-start;
+}
+.col-middle {
+  align-self: center;
+}
+.col-bottom {
+  align-self: flex-end;
+}
+.grid-middle {
+  align-items: center;
+}
+.grid-bottom {
+  align-items: flex-end;
+}
+[class*="grid-"][class*="-reverse"] {
+  flex-direction: row-reverse;
+}
+[class*="grid-"][class*="-equalheight"] > [class*="col-"]{
+  display: flex;
+}
+[class*="grid-"][class*="nogutter"] {
+  margin: 0;
+
+  [class*="col-"]{
+    padding: 0;
+  }
+}
+
+
+@mixin breakpoint-type($namespace:"") {
+  .col-#{$namespace}1 {
+    flex-basis: $column;
+    max-width: $column;
+  }
+  .col-#{$namespace}2 {
+    flex-basis: $column*2;
+    max-width: $column*2;
+  }
+  .col-#{$namespace}3 {
+    flex-basis: $column*3;
+    max-width: $column*3;
+  }
+  .col-#{$namespace}4 {
+    flex-basis: $column*4;
+    max-width: $column*4;
+  }
+  .col-#{$namespace}5 {
+    flex-basis: $column*5;
+    max-width: $column*5;
+  }
+  .col-#{$namespace}6 {
+    flex-basis: $column*6;
+    max-width: $column*6;
+  }
+  .col-#{$namespace}7 {
+    flex-basis: $column*7;
+    max-width: $column*7;
+  }
+  .col-#{$namespace}8 {
+    flex-basis: $column*8;
+    max-width: $column*8;
+  }
+  .col-#{$namespace}9 {
+    flex-basis: $column*9;
+    max-width: $column*9;
+  }
+  .col-#{$namespace}10 {
+    flex-basis: $column*10;
+    max-width: $column*10;
+  }
+  .col-#{$namespace}11 {
+    flex-basis: $column*11;
+    max-width: $column*11;
+  }
+  .col-#{$namespace}12 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+@mixin breakpoint-helper($namespace:"") {
+  .#{$namespace}show { display: block!important; }
+  .#{$namespace}hide { display: none!important; }
+
+  .#{$namespace}text-left { text-align: left!important; }
+  .#{$namespace}text-right { text-align: right!important; }
+  .#{$namespace}text-center { text-align: center!important; }
+
+  .#{$namespace}left { float: left!important; }
+  .#{$namespace}right { float: right!important; }
+}
+
+@include breakpoint-helper();
+@include breakpoint-type();
+
+@each $breakpoint in $breakpoints {
+  $name: nth($breakpoint, 1);
+  $declaration: nth($breakpoint, 2);
+
+  @media only screen and #{$declaration} {
+    @include breakpoint-helper('#{$name}-');
+    @include breakpoint-type('#{$name}-');
+  }
+}

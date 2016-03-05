@@ -1,0 +1,27 @@
+{
+  "name": "flexgrid",
+  "version": "1.0.0",
+  "description": "A Responsive Flexbox Grid System",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^6.3.3",
+    "grunt": "^0.4.5",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-cssnano": "^2.0.1",
+    "grunt-postcss": "^0.8.0",
+    "load-grunt-tasks": "^3.4.1"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CalinR/FlexGrid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CalinR/FlexGrid/issues"
+  },
+  "homepage": "https://github.com/CalinR/FlexGrid#readme"
+}
