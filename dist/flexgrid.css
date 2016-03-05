@@ -21,6 +21,15 @@
   max-width: 100%;
 }
 
+.ie9 [class*="grid"]:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.ie9 [class*="col-"]{
+    float: left;
+}
+
 .col-top {
   -webkit-align-self: flex-start;
       -ms-flex-item-align: start;
