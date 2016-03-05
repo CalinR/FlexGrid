@@ -27,6 +27,14 @@ $breakpoints: (
   flex-basis: 100%;
   max-width: 100%;
 }
+.ie9 [class*="grid"]:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.ie9 [class*="col-"]{
+  float: left;
+}
 .col-top {
   align-self: flex-start;
 }
