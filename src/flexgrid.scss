@@ -33,6 +33,7 @@ $breakpoints: (
   clear: both;
 }
 .ie9 [class*="col-"]{
+  width: 100%;
   float: left;
 }
 .col-top {
